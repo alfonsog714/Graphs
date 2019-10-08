@@ -205,6 +205,7 @@ if __name__ == '__main__':
     Valid BFS path:
         [1, 2, 4, 6]
     '''
+    print("\nStarting Breadth-first Search\n")
     print(graph.bfs(1, 6))
 
     '''
@@ -212,4 +213,5 @@ if __name__ == '__main__':
         [1, 2, 4, 6]
         [1, 2, 4, 7, 6]
     '''
+    print("\nStarting Depth-first Search\n")
     print(graph.dfs(1, 6))
