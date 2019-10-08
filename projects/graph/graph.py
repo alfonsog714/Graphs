@@ -32,22 +32,41 @@ class Graph:
         """
         # BFT Pseudocode
         # Create a queue
-        queue = Queue()
+        qq = Queue()
         # Create list of visited nodes
+        visited = set()
         # Put starting node in the queue
+        qq.enqueue(starting_vertex)
         # While: queue not empty
-        # Pop first node out of queue
+        while qq.size() > 0:
+            # Pop first node out of queue
+            vertex = qq.dequeue()
         # If not visited
-        #       Mark as visited
+            if vertex not in visited:
+                # Mark as visited
+                visited.add(vertex)
+                print(vertex)
         #       Get adjacent edges and add to list
-        # Goto top of loop
+                for next_vert in self.vertices[vertex]:
+                    qq.enqueue(next_vert)
+        # Goto top of loop - done automatically
 
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        stack = Stack()
+        visited = set()
+        stack.push(starting_vertex)
+        while stack.size() > 0:
+            # The difference between this and the bft is that it is important to take the item out of the stack before you start adding more items to the stack.
+            vertex = stack.pop()
+            if vertex not in visited:
+                visited.add(vertex)
+                print(vertex)
+                for next_vert in self.vertices[vertex]:
+                    stack.push(next_vert)
 
     def dft_recursive(self, starting_vertex, visited=None):
         """
@@ -144,6 +163,7 @@ if __name__ == '__main__':
         1, 2, 4, 7, 6, 3, 5
         1, 2, 4, 6, 3, 5, 7
     '''
+    print("\nStarting DFT\n")
     graph.dft(1)
 
     '''
@@ -161,7 +181,15 @@ if __name__ == '__main__':
         1, 2, 4, 3, 7, 6, 5
         1, 2, 4, 3, 7, 5, 6
     '''
+    print("\nStarting BFT\n")
     graph.bft(1)
+    # test = {}
+    # test_vertex = 1
+    # test[test_vertex] = set()
+    # test[test_vertex].add(2)
+    # for key in test.keys():
+    #     print(test[key])
+    # print(test[test_vertex])
 
     '''
     Valid DFT recursive paths:
@@ -170,6 +198,7 @@ if __name__ == '__main__':
         1, 2, 4, 7, 6, 3, 5
         1, 2, 4, 6, 3, 5, 7
     '''
+    print("\nStarting DFT recursive\n")
     graph.dft_recursive(1)
 
     '''
