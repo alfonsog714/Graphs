@@ -183,13 +183,13 @@ if __name__ == '__main__':
     '''
     print("\nStarting BFT\n")
     graph.bft(1)
-    # test = {}
-    # test_vertex = 1
-    # test[test_vertex] = set()
-    # test[test_vertex].add(2)
-    # for key in test.keys():
-    #     print(test[key])
-    # print(test[test_vertex])
+    test = {}
+    test_vertex = 1
+    test[test_vertex] = set()
+    test[test_vertex].add(2)
+    for key in test.keys():
+        print(test[key])
+    print(test[test_vertex])
 
     '''
     Valid DFT recursive paths:
