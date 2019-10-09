@@ -26,8 +26,8 @@ def island_counter(matrix):
     for x in range(len(matrix[0])):
         for y in range(len(matrix)):
             # if not visited
-            if not visited[x][y]:
-                if matrix[x][y] == 1:
+            if not visited[y][x]:
+                if matrix[y][x] == 1:
                     # Run some DFT and mark each as visited
                     dft(x, y, matrix, visited)
 
@@ -100,4 +100,4 @@ islands = [[1, 0, 0, 1, 1, 0, 1, 1, 0, 1],
            [0, 1, 1, 0, 0, 0, 1, 1, 0, 0],
            [0, 0, 1, 1, 0, 1, 0, 0, 1, 0]]
 
-print(f"Expecting 18: {island_counter(islands)}")
+print(f"Expecting 13: {island_counter(islands)}")
